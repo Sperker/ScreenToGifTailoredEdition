@@ -1,133 +1,204 @@
 <p align="center">
   <a href="https://github.com/NickeManarin/ScreenToGif" target="_blank">
-    <img align="center" alt="screen recorder" src="https://nickemanarin.github.io/ScreenToGif-Website/logos/ms-icon-144x144.png" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/NickeManarin/ScreenToGif/stargazers" target="_blank">
-    <img alt="GitHub stars" src="https://img.shields.io/github/stars/NickeManarin/ScreenToGif.svg" />
-  </a>
-
-  <a href="https://github.com/NickeManarin/ScreenToGif/releases" target="_blank">
-    <img alt="All releases" src="https://img.shields.io/github/downloads/NickeManarin/ScreenToGif/total.svg" />
-  </a>
-
-  <a href="https://chocolatey.org/packages/screentogif" target="_blank">
-    <img alt="All Chocolatey releases" src="https://img.shields.io/chocolatey/dt/screentogif.svg" />
+    <img align="center" alt="ScreenToGif Logo" src="https://nickemanarin.github.io/ScreenToGif-Website/logos/ms-icon-144x144.png" width="96" height="96" />
   </a>
 </p>
 
 <h1 align="center">
-  ScreenToGif 🎬
-  <a href="http://www.screentogif.com/" target="_blank">screentogif.com</a>
+  ScreenToGif — Tailored Edition 🎬
 </h1>
 
-<p align="center">This tool allows you to record a selected area of your <strong>screen</strong>, live feed from your <strong>webcam</strong> or live drawings from a <strong>sketchboard</strong>. Afterward, you can edit and save the animation as a gif, apng, video, psd or png image.</p>
+<p align="center">
+  A streamlined, workflow-optimized edition of <strong>ScreenToGif</strong> designed for standardized visual software documentation.
+</p>
 
 <p align="center">
-  <a href="https://github.com/NickeManarin/ScreenToGif/releases" target="_blank">
-    <img align="center" alt="download" src="https://nickemanarin.github.io/ScreenToGif-Website/wiki/download-now.png"/>
+  <a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime" target="_blank">
+    <img alt=".NET 9 Desktop Runtime" src="https://img.shields.io/badge/.NET-9.0%20Desktop%20Runtime-512BD4?logo=dotnet" />
+  </a>
+  <img alt="Platform Windows" src="https://img.shields.io/badge/Platform-Windows%20x64-0078D6?logo=windows" />
+  <a href="LICENSE.txt">
+    <img alt="License MS-PL" src="https://img.shields.io/badge/License-MS--PL-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/NickeManarin/ScreenToGif" target="_blank">
+    <img alt="Upstream NickeManarin/ScreenToGif" src="https://img.shields.io/badge/Upstream-NickeManarin%2FScreenToGif-orange?logo=github" />
   </a>
 </p>
 
 <p align="center">
-  <a href="https://www.microsoft.com/en-us/p/screentogif/9n3sqk8pds8g" target="_blank">
-    <img align="center" alt="download Microsoft Store" src="https://nickemanarin.github.io/ScreenToGif-Website/wiki/download-store.png"/>
-  </a>
-
-  <a href="https://chocolatey.org/packages/screentogif" target="_blank">
-    <img align="center" alt="Download from Chocolatey" src="https://nickemanarin.github.io/ScreenToGif-Website/wiki/download-chocolatey.png"/>
-  </a>
+  🌐 <strong>Language / Sprache:</strong> <a href="#-english">English</a> | <a href="#-deutsch">Deutsch</a>
 </p>
 
-<p align="center">
-  <g-emoji ios-version="6.0" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png" alias="warning">⚠️</g-emoji>
-  Attention, it requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime">.NET 9 Desktop Runtime</a> (or above). 
-  <g-emoji ios-version="6.0" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/26a0.png" alias="warning">⚠️</g-emoji>
-</p>
+---
 
-<p align="center">
-  <a href="https://github.com/NickeManarin/ScreenToGif/releases/latest" target="_blank">
-    <img alt="Latest GitHub release" src="https://img.shields.io/github/release/nickemanarin/screentogif.svg" />
-  </a>
+<a name="-english"></a>
+## 🇬🇧 English
 
-  <a href="https://chocolatey.org/packages/screentogif" target="_blank">
-    <img alt="Latest Chocolatey release" src="https://img.shields.io/chocolatey/v/screentogif.svg" />
-  </a>
+### 1. About This Project
+**ScreenToGif** is a widely acclaimed open-source screen recording and animated GIF editor for Windows, originally created and maintained by **Nicke Manarin**.
 
-  <a href="https://github.com/NickeManarin/ScreenToGif/wiki/Help" target="_blank">
-    <img alt="Documentation WIP" src="https://img.shields.io/badge/Docs-WIP-red.svg" />
-  </a>
+The **Tailored Edition** is a specialized fork crafted specifically for creating consistent, high-quality, and repeatable visual software documentation. Rather than offering an overwhelming array of general-purpose media tools, this edition tailors the user interface and functionality directly to an established documentation pipeline.
 
-  <a href="https://github.com/NickeManarin/ScreenToGif/issues" target="_blank">
-    <img alt="Issues" src="https://img.shields.io/github/issues/NickeManarin/ScreenToGif.svg" />
-  </a>
+---
 
-  <a style="text-decoration:none" href="https://discord.gg/XgEqDHX">
-    <img src="https://img.shields.io/discord/318260719680356352.svg" alt="Discord" />
-  </a>
-</p>
-	
-<h2>Would you like to help the project?</h2>
+### 2. Purpose of the Fork
+In this fork, features that do not align with our visual documentation workflow or pipeline have been intentionally removed from the user interface. Navigation tabs have been reorganized into a linear, sequential process, and purpose-built functions were added to streamline routine documentation tasks:
 
- * PayPal donation: [![PayPal page](https://img.shields.io/badge/donate-Paypal-fd8200.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=JCY2BGLULSWVJ&lc=US&item_name=ScreenToGif&item_number=screentogif&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
- * Patreon subscription: [![Patreon subscription](https://img.shields.io/badge/subscribe-Patreon-orange.svg)](https://www.patreon.com/nicke)
- * Ko-fi donation: [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B7Y5Z9)
- * Flattr subscription: https://flattr.com/@NickeManarin/domain/screentogif.com 
- * Steam wishlist: [![Steam wishlist](https://img.shields.io/badge/donate-Steam-171a21.svg)](http://steamcommunity.com/id/nickesm/wishlist)
- * GOG Galaxy wishlist: https://www.gog.com/u/Nickesm/wishlist
- * Amazon wishlist: https://www.amazon.com/hz/wishlist/ls/2S54SRWY2K8KF?ref_=wl_share
- * Feedback (reporting bugs, ideas, etc) [![Author's Twitter](https://img.shields.io/badge/Twitter-%40NickeManarin-blue.svg)](https://twitter.com/NickeManarin)
- * [Anyone can still contribute to the localization of the app/website/installer](https://github.com/NickeManarin/ScreenToGif/blob/master/LOCALIZATION.md)
- * Create a review. :)
+* **Distraction-Free UI:** Unused options, recording modes, and background modules have been hidden to prevent misconfigurations and eliminate clutter.
+* **Strict Standardization:** 
+  * **Progress Bar:** Appearance and animation behavior are standardized and locked to guarantee a unified look across all documentation assets.
+  * **Left-Click Highlight:** Visual styling and color for mouse clicks are standardized and locked.
+* **Supported Export Formats:**
+  * **Poster / Single Frames:** Saved exclusively as **JPEG**, **PNG**, or **GIF**.
+  * **Screen Recording Animation:** Produced exclusively as **Animated GIF** (`.gif`).
 
+---
 
-<h2>Please, avoid selling this app as yours</h2>
-I don't care if you copy the source code to use in your project, but please avoid simply changing the name and selling as your work. 
-That's not why I'm sharing the source code, at all.
+### 3. The 7-Step Documentation Workflow ("Docu Process")
+The main menu has been transformed into a guided ribbon called **Docu Process**, featuring seven numbered steps (`>> 1 >>`, `>> 2 >>`, etc.) styled in accent color (`#111B42`):
 
-<h2>Screenshots</h2>
+1. **`1 >> Save Project`** — Immediately creates an initial safety backup of the raw recording. If editing errors occur later, the original recording can be restored at any time.
+2. **`2 >> Save Poster`** — Selects and exports a key frame from the timeline as a static image (Cover/Poster in JPG, PNG, or GIF). This poster serves as the static preview image on documentation websites before the animation is triggered.
+3. **`3 >> Edit Timeline`** — Jumps directly to the **Actions** tab to trim, cut, and adjust frames. Here, you also apply a standardized **Start Delay** and **End Delay** buffer.
+4. **`4 >> Save Project`** — Intermediate save after trimming is complete. This establishes a clean checkpoint before applying permanent visual overlays.
+5. **`5 >> Add Progress Bar`** — Applies the standardized progress bar indicator to the animation with one click.
+6. **`6 >> Add Left Click Highlight`** — Applies the standardized highlight effect for all left mouse clicks.
+7. **`7 >> Save Animated GIF`** — Opens the export sidebar with pre-tuned encoding presets for the final animated GIF file.
 
-<p align="center">
- <img align="center" alt="start up" src="https://nickemanarin.github.io/ScreenToGif-Website/media/Recorder.png" />
-</p>
+---
 
-<p align="center">
- <img align="center" alt="start up" src="https://nickemanarin.github.io/ScreenToGif-Website/media/Startup.png" />
-</p>
+### 4. Detailed Summary of Changes (Compared to Upstream)
 
-<p align="center">
-  <img align="center" alt="editor" src="https://nickemanarin.github.io/ScreenToGif-Website/media/Editor.gif" />
-</p>
+#### 1. Branding & Identity
+* **Window & Overlay Titles:** Updated to `ScreenToGif 2.43.2 Tailored Edition` across the Editor, Startup launcher, and Recorder overlay.
+* **Startup Launcher:** Restored direct one-click access to the **Editor** while keeping the screen recorder front and center.
+* **About & Credits:** Dedicated settings page giving full recognition to the original author (*Nicke Manarin*) and the MS-PL license, while outlining the tailored documentation modifications.
 
-<p align="center">
-  <img align="center" alt="option" src="https://nickemanarin.github.io/ScreenToGif-Website/media/Options.gif" />
-</p>
+#### 2. Simplified Interface & Decluttering
+* **Options Dialog:** Hidden irrelevant categories (*Application, Recorder, Editor, Tasks, Storage, Cloud, Extras*) to maintain a focused configuration interface.
+* **Extras Menu:** Removed *Feedback* and *Troubleshoot* dialogs.
+* **Shortcuts:** Cleaned up unused global shortcut registrations (*Webcam recorder, Board recorder, Options*).
+* **Focused Recording:** Hidden non-documentation tools (webcam recorder, whiteboard sketcher) from primary screens.
 
-<p align="center">
-  <img align="center" alt="keystrokes" src="https://nickemanarin.github.io/ScreenToGif-Website/media/Keys.gif" />
-</p>
+#### 3. Guided 7-Step Documentation Process ("Docu Process")
+* Renamed the original *File* tab to **Docu Process**.
+* Organized the **Process Steps** container into seven sequential, visually centered steps with chevrons (`>> X >>`) in theme color `#111B42`.
 
-<h2>Mentions</h2>
+#### 4. Restructured "Actions" Tab (formerly "Home")
+* **Integrated Playback:** Moved *Playback* and *Playback Options* directly in front of editing tools.
+* **Frames Container:**
+  * Added **Delete All Previous** (deletes all frames prior to current frame).
+  * Added **Delete All Next** (deletes all frames after current frame).
+  * Added **Delay at Start / Buffer Tool:** Dropdown providing `0s`, `0.25s`, `0.5s`, `0.75s` (default), and `1.0s`. Automatically calculates and duplicates first/last frames based on frame delay to ensure smooth reading pauses and looping; cleanly removes and resets previous buffers on change.
+* **Layout Order:** `Frames` $\rightarrow$ `Clipboard` $\rightarrow$ `Action Stack` (Undo/Redo) $\rightarrow$ `Zoom`.
 
-<table>
-	<tr>
-		<th>Website</th>
-	</tr>
-	<tr>
-		<td><a href="https://www.chip.de/downloads/Screen-To-Gif_65993193.html">Chip</a></td>
-	</tr>
-	<tr>
-		<td><a href="https://www.softpedia.com/get/Multimedia/Graphic/Graphic-Others/Screen-to-Gif.shtml">Softpedia</a></td>
-	</tr>
-	<tr>
-		<td><a href="https://www.portablefreeware.com/index.php?id=2895">PortableFreeware</a></td>
-	</tr>
-</table>
+#### 5. Enhanced Export & Storage Functions
+* **Right-Click Single Frame Export:** Restored the ability to right-click any frame in the bottom filmstrip and export it immediately (defaulting to JPG, with PNG and GIF support).
+* **Dedicated "Save Poster" Sidebar:** Provides a dedicated panel to export the current frame with full resolution and saved destination path history.
+* **Pre-Tuned Presets:** Built-in presets for quantizers, color palettes, and file paths eliminate manual encoder setup.
 
-<h2>The creator also distributes this app via these websites</h2>
+#### 6. Stability & Binary Size Optimization
+* **Race-Condition & Deadlock Fix:** Resolved an upstream timing issue in the recorder where double-stopping capture caused UI freezes and application hangs.
+* **Export Panel Guard:** Guarded against recursive save invocations in the sidebar.
+* **Compact Single-File Binary:** Configured a framework-dependent build profile producing a lightweight executable of **~12.4 MB** (compared to >178 MB for self-contained packages).
 
-* [Chocolatey](https://chocolatey.org/packages/screentogif)
-* [FOSSHUB](https://www.fosshub.com/ScreenToGif.html)
-* [Microsoft Store](https://www.microsoft.com/en-us/p/screentogif/9n3sqk8pds8g)
+---
+
+### 5. Requirements & Running
+* **Operating System:** Windows 10 / 11 (64-Bit)
+* **Runtime:** [.NET 9 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime) or later.
+* **Executable:** Run `ScreenToGif.exe` directly or build using `dotnet publish ScreenToGif/ScreenToGif.csproj /p:PublishProfile="Publish as x64 (light)"`.
+
+---
+
+### 6. Credits & License
+* **Original Creator:** [Nicke Manarin](https://github.com/NickeManarin)
+* **Original Project:** [https://github.com/NickeManarin/ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+* **License:** Microsoft Public License ([MS-PL](LICENSE.txt)). All intellectual property and credit for the original codebase remain with Nicke Manarin and its open-source contributors.
+
+---
+---
+
+<a name="-deutsch"></a>
+## 🇩🇪 Deutsch
+
+### 1. Über dieses Projekt
+**ScreenToGif** ist ein bewährtes Open-Source-Werkzeug zur Bildschirmaufzeichnung und Bearbeitung von animierten GIFs für Windows, ursprünglich entwickelt und gepflegt von **Nicke Manarin**.
+
+Die **Tailored Edition** ist ein spezialisierter Fork, der gezielt auf die Erstellung standardisierter, visueller Softwaredokumentationen angepasst wurde. Anstelle einer unübersichtlichen Fülle allgemeiner Medienwerkzeuge konzentriert sich diese Edition kompromisslos auf eine festgelegte Dokumentations-Pipeline.
+
+---
+
+### 2. Zweck und Konzept dieses Forks
+Bei diesem Fork wurden Funktionen, die für den vorgesehenen Dokumentations-Workflow bzw. die definierte Pipeline nicht benötigt werden, gezielt aus der Benutzeroberfläche (Frontend) entfernt. Die Funktionsreiter wurden neu strukturiert und essenzielle Schritte ergänzt, um einen fehlerfreien, geführten Ablauf zu gewährleisten:
+
+* **Fokussierte Benutzeroberfläche:** Nicht benötigte Optionen, Aufnahmemodi und Hintergrunddienste wurden ausgeblendet, um Fehlbedienungen auszuschließen und eine klare Struktur zu bieten.
+* **Standardisierte Gestaltungselemente:**
+  * **Progress Bar (Fortschrittsbalken):** Aussehen und Verhalten sind fest standardisiert und können vom Anwender nicht verändert werden, um eine einheitliche Corporate Identity über alle Dokumentationsinhalte sicherzustellen.
+  * **Left-Click Highlight (Linksklick-Hervorhebung):** Farbe und Animationseffekt bei Mausklicks sind fest standardisiert und unveränderbar.
+* **Zulässige Dateiformate:**
+  * **Poster / Standbilder:** Ausschließlich **JPEG**, **PNG** und **GIF**.
+  * **Aufnahmen / Animationen:** Ausschließlich **animierte GIFs** (`.gif`).
+
+---
+
+### 3. Der 7-Schritte-Dokumentationsprozess ("Docu Process")
+Der Hauptreiter wurde in **Docu Process** umbenannt und enthält die Leiste **Process Steps** mit sieben aufeinander aufbauenden, nummerierten Schritten (`>> 1 >>`, `>> 2 >>`, usw.) in der Akzentfarbe (`#111B42`):
+
+1. **`1 >> Save Project`** – Die eben getätigte Aufnahme wird als Erstes als Projektdatei abgespeichert. So kann der Rohzustand jederzeit wiederhergestellt werden, falls bei der Nachbearbeitung Fehler passieren.
+2. **`2 >> Save Poster`** – Ein repräsentatives Frame wird aus der Timeline selektiert und als Standbild (Cover/Poster in JPG, PNG oder GIF) gespeichert. Dieses Poster dient später auf der Dokumentations-Website als Vorschaubild, über das das animierte GIF gestartet wird.
+3. **`3 >> Edit Timeline`** – Wechselt direkt auf den Reiter **Actions**, um die Aufnahme zu schneiden (Frames trimmen/löschen) sowie einen standardisierten Start- und End-Puffer (**Start Delay / End Delay**) einzufügen.
+4. **`4 >> Save Project`** – Erneutes Zwischenspeichern nach dem Schnitt. Dadurch entsteht ein stabiler Sicherungspunkt, bevor permanente visuelle Overlays aufgebracht werden.
+5. **`5 >> Add Progress Bar`** – Fügt der Animation den vorkonfigurierten, standardisierten Fortschrittsbalken hinzu.
+6. **`6 >> Add Left Click Highlight`** – Fügt die standardisierte Hervorhebung für alle Linksklicks hinzu.
+7. **`7 >> Save Animated GIF`** – Öffnet die Speichern-Seitenleiste mit optimierten Standardwerten für das finale animierte GIF.
+
+---
+
+### 4. Detaillierte Übersicht aller Änderungen (im Vergleich zum Original)
+
+#### 1. Branding & Identität
+* **Fenstertitel & Overlay:** Einheitlich als `ScreenToGif 2.43.2 Tailored Edition` im Editor, im Recorder-Overlay und im Startfenster gekennzeichnet.
+* **Startup-Fenster:** Startbildschirm aufgeräumt; Direktzugriff auf den **Editor** wiederhergestellt.
+* **About & Credits:** Einstellungsseite vollständig überarbeitet. Sie würdigt den Originalautor (*Nicke Manarin*) und die MS-PL-Lizenz und dokumentiert die vorgenommenen Anpassungen für die Dokumentations-Pipeline.
+
+#### 2. Vereinfachte Oberfläche & Entrümpelung
+* **Optionen:** Nicht benötigte Kategorien (*Application, Recorder, Editor, Tasks, Storage, Cloud, Extras*) entfernt.
+* **Extras-Menü:** *Feedback* und *Troubleshoot* entfernt.
+* **Tastaturkürzel:** Nicht genutzte globale Shortcuts (*Webcam recorder, Board recorder, Options*) ausgeblendet.
+* **Recorder:** Nicht genutzte Modi (Webcam- und Board-Recorder) aus den Hauptmenüs entfernt.
+
+#### 3. Neuer geführter 7-Schritte-Dokumentationsprozess ("Docu Process")
+* Der frühere Reiter *File* wurde in **Docu Process** umbenannt.
+* Die Funktionsgruppe **Process Steps** führt den Anwender mit optisch hervorgehobenen Schrittnummern und Pfeilen (`>> X >>`) strukturiert durch alle 7 Phasen der GIF-Erstellung.
+
+#### 4. Neu strukturierter Reiter "Actions" (früher "Home")
+* **Playback & Playback Options:** Vor die Schnittwerkzeuge integriert.
+* **Gruppe Frames:**
+  * `Delete All Previous` (Alle Frames vor der aktuellen Markierung löschen).
+  * `Delete All Next` (Alle Frames nach der aktuellen Markierung löschen).
+  * **Neu:** `Delay at Start / Buffer`: Dropdown mit `0s`, `0.25s`, `0.5s`, `0.75s` *(Default)*, `1.0s`. Berechnet anhand der Frame-Verzögerung automatisch die benötigten Duplikate am Start und Ende für eine saubere Pause vor dem Loop; entfernt bei Neuwahl vorherige Puffer-Frames automatisch.
+* **Ergonomische Anordnung:** `Frames` $\rightarrow$ `Clipboard` $\rightarrow$ `Action Stack` (Undo/Redo) $\rightarrow$ `Zoom`.
+
+#### 5. Erweiterte Export- & Speicherfunktionen
+* **Einzelbildexport per Rechtsklick:** Beliebige Frames im Filmstreifen können per Rechtsklick direkt als Datei exportiert werden (Standard: JPG, alternativ PNG/GIF).
+* **Eigene "Save Poster"-Sidebar:** Eigene Seitenleiste zum verlustfreien Exportieren des ausgewählten Standbilds inklusive Pfad-Historie.
+* **Vorkonfigurierte Presets:** Voreingestellte Quantisierer, Farbpaletten und Benennungsregeln machen manuelle Encodereinstellungen überflüssig.
+
+#### 6. Stabilität & Dateigröße
+* **Crash- & Deadlock-Prävention:** Behebung einer Race-Condition im Recorder, die beim Stoppen von Aufnahmen zu Deadlocks und Hängern führen konnte.
+* **Sidebar-Absicherung:** Schutz vor rekursiven Speicheraufrufen bei mehrfachem Klick in der Sidebar.
+* **Schlanke Ausführungsdatei:** Framework-Dependent Build-Profil reduziert die Dateigröße auf handliche **~12.4 MB** (statt >178 MB bei Self-Contained-Builds).
+
+---
+
+### 5. Systemvoraussetzungen
+* **Betriebssystem:** Windows 10 / 11 (64-Bit)
+* **Laufzeitumgebung:** [.NET 9 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime) oder neuer.
+
+---
+
+### 6. Danksagung & Lizenz
+* **Originalautor:** [Nicke Manarin](https://github.com/NickeManarin)
+* **Originalprojekt:** [https://github.com/NickeManarin/ScreenToGif](https://github.com/NickeManarin/ScreenToGif)
+* **Lizenz:** Microsoft Public License ([MS-PL](LICENSE.txt)). Sämtliche Urheber- und Anerkennungsrechte an der Originalsoftware verbleiben vollumfänglich bei Nicke Manarin und der Open-Source-Community.
