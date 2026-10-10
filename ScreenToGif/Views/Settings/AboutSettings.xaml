@@ -1,0 +1,78 @@
+<Page x:Class="ScreenToGif.Views.Settings.AboutSettings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:c="clr-namespace:ScreenToGif.Controls"
+      xmlns:t="clr-namespace:ScreenToGif.Util.Settings;assembly=ScreenToGif.Util"
+      Title="AboutSettings">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Focusable="False" IsTabStop="False">
+        <StackPanel DataContext="{x:Static t:UserSettings.All}" Margin="15,10,15,15">
+            <!-- Header with Logo and Version -->
+            <Grid Margin="0,5,0,15" HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" Background="{StaticResource Vector.Logo}" Height="54" Width="64" Margin="10" VerticalAlignment="Center"
+                        Opacity="{DynamicResource Element.Opacity}"/>
+
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                    <TextBlock Text="ScreenToGif Tailored Edition" FontSize="20" FontWeight="SemiBold"
+                               Foreground="{DynamicResource Element.Foreground.Header}"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                        <TextBlock Text="{DynamicResource S.Options.About.Version}" FontSize="13" Foreground="{DynamicResource Element.Foreground.Gray150}" Margin="0,0,4,0"/>
+                        <TextBlock Text="{Binding Source={x:Static t:UserSettings.All}, Path=VersionText}" FontSize="13" Foreground="{DynamicResource Element.Foreground.Gray150}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <c:LabelSeparator Text="About This Version"/>
+
+            <Border Background="{DynamicResource Panel.Background.Level2}" BorderBrush="{DynamicResource Element.Border.Light}" 
+                    BorderThickness="1" CornerRadius="4" Padding="15" Margin="5,10,5,10">
+                <StackPanel>
+                    <TextBlock TextWrapping="Wrap" FontSize="13" LineHeight="20" Foreground="{DynamicResource Element.Foreground}" Margin="0,0,0,12">
+                        This application is a customized version of the open-source software <Bold>ScreenToGif</Bold>, originally created and developed by <Hyperlink NavigateUri="https://github.com/NickeManarin" RequestNavigate="Hyperlink_OnRequestNavigate" Cursor="Hand"><Bold>Nicke Manarin</Bold></Hyperlink>.
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="13" LineHeight="20" Foreground="{DynamicResource Element.Foreground}" Margin="0,0,0,12">
+                        It has been adapted for an optimized documentation workflow by simplifying the interface, removing unnecessary options, reorganizing menus into an intuitive process, and adjusting terminology.
+                    </TextBlock>
+
+                    <TextBlock TextWrapping="Wrap" FontSize="13" LineHeight="20" Foreground="{DynamicResource Element.Foreground}" Margin="0,0,0,16">
+                        <Bold>All credit, intellectual property rights, and recognition for the original software remain with Nicke Manarin and its respective contributors.</Bold> We sincerely appreciate their outstanding work and contribution to the open-source community.
+                    </TextBlock>
+
+                    <Separator Height="1" Margin="0,0,0,14" Background="{DynamicResource Element.Border.Light}"/>
+
+                    <Grid Margin="0,3,0,6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource Element.Foreground}" Text="Original Project:" Margin="0,0,8,0"/>
+                        <TextBlock Grid.Column="1" FontSize="13">
+                            <Hyperlink NavigateUri="https://github.com/NickeManarin/ScreenToGif" RequestNavigate="Hyperlink_OnRequestNavigate" Cursor="Hand">
+                                https://github.com/NickeManarin/ScreenToGif
+                            </Hyperlink>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Margin="0,4,0,2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" FontSize="13" FontWeight="Bold" Foreground="{DynamicResource Element.Foreground}" Text="Software License:" Margin="0,0,8,0"/>
+                        <TextBlock Grid.Column="1" FontSize="13">
+                            <Hyperlink NavigateUri="https://github.com/NickeManarin/ScreenToGif/blob/master/LICENSE.txt" RequestNavigate="Hyperlink_OnRequestNavigate" Cursor="Hand">
+                                Microsoft Public License (MS-PL)
+                            </Hyperlink>
+                        </TextBlock>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
