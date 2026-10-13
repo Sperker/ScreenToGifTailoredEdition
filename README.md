@@ -13,9 +13,7 @@
 </p>
 
 <p align="center">
-  <a href="https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime" target="_blank">
-    <img alt=".NET 9 Desktop Runtime" src="https://img.shields.io/badge/.NET-9.0%20Desktop%20Runtime-512BD4?logo=dotnet" />
-  </a>
+  <img alt="Self-Contained win-x64" src="https://img.shields.io/badge/.NET%209-Self--Contained%20(win--x64)-512BD4?logo=dotnet" />
   <img alt="Platform Windows" src="https://img.shields.io/badge/Platform-Windows%20x64-0078D6?logo=windows" />
   <a href="LICENSE.txt">
     <img alt="License MS-PL" src="https://img.shields.io/badge/License-MS--PL-brightgreen.svg" />
@@ -100,14 +98,14 @@ The main menu has been transformed into a guided ribbon called **Docu Process**,
 #### 6. Stability & Binary Size Optimization
 * **Race-Condition & Deadlock Fix:** Resolved an upstream timing issue in the recorder where double-stopping capture caused UI freezes and application hangs.
 * **Export Panel Guard:** Guarded against recursive save invocations in the sidebar.
-* **Compact Single-File Binary:** Configured a framework-dependent build profile producing a lightweight executable of **~12.4 MB** (compared to >178 MB for self-contained packages).
+* **Self-Contained Single-File Binary:** Built as a standalone Self-Contained x64 executable with the full .NET 9 Runtime embedded. End users can launch the application immediately without installing any external runtime or dependencies.
 
 ---
 
 ### 5. Requirements & Running
 * **Operating System:** Windows 10 / 11 (64-Bit)
-* **Runtime:** [.NET 9 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime) or later.
-* **Executable:** Run `ScreenToGif.exe` directly or build using `dotnet publish ScreenToGif/ScreenToGif.csproj /p:PublishProfile="Publish as x64 (light)"`.
+* **Runtime:** Fully self-contained — **No separate .NET Runtime installation required.**
+* **Executable:** Run `ScreenToGif.exe` directly or build using `dotnet publish ScreenToGif/ScreenToGif.csproj /p:PublishProfile="Publish as x64"`.
 
 ---
 
@@ -188,13 +186,14 @@ Der Hauptreiter wurde in **Docu Process** umbenannt und enthält die Leiste **Pr
 #### 6. Stabilität & Dateigröße
 * **Crash- & Deadlock-Prävention:** Behebung einer Race-Condition im Recorder, die beim Stoppen von Aufnahmen zu Deadlocks und Hängern führen konnte.
 * **Sidebar-Absicherung:** Schutz vor rekursiven Speicheraufrufen bei mehrfachem Klick in der Sidebar.
-* **Schlanke Ausführungsdatei:** Framework-Dependent Build-Profil reduziert die Dateigröße auf handliche **~12.4 MB** (statt >178 MB bei Self-Contained-Builds).
+* **Self-Contained Single-File Binary:** Als eigenständige, autarke Windows x64 Executable paketiert (.NET 9 Runtime ist direkt enthalten). Anwender können die Anwendung ohne vorherige .NET-Installation direkt starten.
 
 ---
 
 ### 5. Systemvoraussetzungen
 * **Betriebssystem:** Windows 10 / 11 (64-Bit)
-* **Laufzeitumgebung:** [.NET 9 Desktop Runtime (x64)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0/runtime) oder neuer.
+* **Laufzeitumgebung:** Vollständig autark (Self-Contained) — **keine separate .NET Runtime-Installation erforderlich.**
+* **Ausführung:** `ScreenToGif.exe` direkt starten oder kompilieren mit `dotnet publish ScreenToGif/ScreenToGif.csproj /p:PublishProfile="Publish as x64"`.
 
 ---
 
