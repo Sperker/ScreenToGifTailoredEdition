@@ -895,7 +895,10 @@ public partial class ExportPanel : UserControl, IPanel
             }
         }
 
-        if (CurrentPreset.ExportPartially)
+        if (!IsPosterMode && CurrentPreset.Type is ExportFormats.Gif or ExportFormats.Stg)
+            CurrentPreset.ExportPartially = false;
+
+        if (!IsPosterMode && CurrentPreset.ExportPartially)
         {
             if (CurrentPreset.PartialExport == PartialExportModes.Selection && SelectionCount < 1)
             {
@@ -974,14 +977,23 @@ public partial class ExportPanel : UserControl, IPanel
     public ExportPreset GetPreset()
     {
         var preset = (CurrentPreset ?? PresetComboBox.SelectedItem as ExportPreset)?.ShallowCopy();
-        if (preset != null && IsPosterMode)
+        if (preset != null)
         {
-            preset.IsPoster = true;
-            preset.ExportPartially = true;
-            preset.PartialExport = PartialExportModes.Selection;
-            preset.ExportAsProjectToo = false;
-            if (preset is ImagePreset img)
-                img.ZipFiles = false;
+            if (IsPosterMode)
+            {
+                preset.IsPoster = true;
+                preset.ExportPartially = true;
+                preset.PartialExport = PartialExportModes.Selection;
+                preset.ExportAsProjectToo = false;
+                if (preset is ImagePreset img)
+                    img.ZipFiles = false;
+            }
+            else
+            {
+                preset.IsPoster = false;
+                if (preset.Type is ExportFormats.Gif or ExportFormats.Stg)
+                    preset.ExportPartially = false;
+            }
         }
         return preset;
     }
@@ -1003,15 +1015,6 @@ public partial class ExportPanel : UserControl, IPanel
 
             AdjustPresentation(TargetFormat);
             LoadPresets(TargetFormat, null, true);
-
-            if (CurrentPreset != null)
-            {
-                CurrentPreset.IsPoster = true;
-                CurrentPreset.ExportPartially = true;
-                CurrentPreset.PartialExport = PartialExportModes.Selection;
-                if (CurrentPreset is ImagePreset img)
-                    img.ZipFiles = false;
-            }
             return;
         }
 
@@ -1027,6 +1030,13 @@ public partial class ExportPanel : UserControl, IPanel
 
         AdjustPresentation(type);
         LoadPresets(type, null, true);
+
+        if (CurrentPreset != null)
+        {
+            CurrentPreset.IsPoster = false;
+            if (type is ExportFormats.Gif or ExportFormats.Stg)
+                CurrentPreset.ExportPartially = false;
+        }
     }
 
     private void PosterTypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1040,15 +1050,6 @@ public partial class ExportPanel : UserControl, IPanel
         TargetFormat = type;
         AdjustPresentation(type);
         LoadPresets(type);
-
-        if (CurrentPreset != null)
-        {
-            CurrentPreset.IsPoster = true;
-            CurrentPreset.ExportPartially = true;
-            CurrentPreset.PartialExport = PartialExportModes.Selection;
-            if (CurrentPreset is ImagePreset img)
-                img.ZipFiles = false;
-        }
     }
 
     private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1108,6 +1109,13 @@ public partial class ExportPanel : UserControl, IPanel
 
         //Set the preset to the UI.
         CurrentPreset = selected.HasAutoSave ? selected : selected.ShallowCopy();
+
+        if (!IsPosterMode)
+        {
+            CurrentPreset.IsPoster = false;
+            if (CurrentPreset.Type is ExportFormats.Gif or ExportFormats.Stg)
+                CurrentPreset.ExportPartially = false;
+        }
 
         //Adjust values for non-persistent properties.
         selected.PartialExportFrameStart = 0;

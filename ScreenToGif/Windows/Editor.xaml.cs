@@ -14,6 +14,7 @@ using ScreenToGif.Util.Helpers;
 using ScreenToGif.Util.Settings;
 using ScreenToGif.ViewModel;
 using ScreenToGif.ViewModel.ExportPresets;
+using ScreenToGif.ViewModel.ExportPresets.AnimatedImage.Gif;
 using ScreenToGif.ViewModel.ExportPresets.Image;
 using ScreenToGif.ViewModel.ExportPresets.Other;
 using ScreenToGif.ViewModel.Tasks;
@@ -249,6 +250,22 @@ namespace ScreenToGif.Windows
             ScrollSynchronizer.SetScrollGroup(BehindScrollViewer, "Canvas");
 
             DisplayUpdatePromoter();
+
+            //Ensure persisted GIF/Project presets never retain stale partial-export flags from Poster mode.
+            if (UserSettings.All.ExportPresets != null)
+            {
+                foreach (var preset in UserSettings.All.ExportPresets.OfType<GifPreset>())
+                {
+                    preset.ExportPartially = false;
+                    preset.IsPoster = false;
+                }
+
+                foreach (var preset in UserSettings.All.ExportPresets.OfType<StgPreset>())
+                {
+                    preset.ExportPartially = false;
+                    preset.IsPoster = false;
+                }
+            }
 
             #region Load
 
@@ -1081,6 +1098,12 @@ namespace ScreenToGif.Windows
                     preset.ExportAsProjectToo = false;
                     if (preset is ImagePreset img)
                         img.ZipFiles = false;
+                }
+                else
+                {
+                    preset.IsPoster = false;
+                    if (preset.Type is ExportFormats.Gif or ExportFormats.Stg)
+                        preset.ExportPartially = false;
                 }
 
                 //Set some transient properties.
@@ -5506,102 +5529,108 @@ namespace ScreenToGif.Windows
                 indexes = new List<int> { targetIdx };
                 preset.ExportAsProjectToo = false;
             }
-            else if (preset.ExportPartially)
+            else
             {
-                switch (preset.PartialExport)
+                if (preset.Type is ExportFormats.Gif or ExportFormats.Stg)
+                    preset.ExportPartially = false;
+
+                if (preset.ExportPartially)
                 {
-                    case PartialExportModes.FrameExpression:
+                    switch (preset.PartialExport)
                     {
-                        var blocks = preset.PartialExportFrameExpression.Split([','], StringSplitOptions.RemoveEmptyEntries);
-                        
-                        foreach (var block in blocks)
+                        case PartialExportModes.FrameExpression:
                         {
-                            //Frame range.
-                            if (block.Contains('-'))
+                            var blocks = preset.PartialExportFrameExpression.Split([','], StringSplitOptions.RemoveEmptyEntries);
+                            
+                            foreach (var block in blocks)
                             {
-                                var subs = block.Split(['-'], StringSplitOptions.RemoveEmptyEntries);
-
-                                if (!int.TryParse(subs[0], out var start) || !int.TryParse(subs[1], out var end))
-                                    continue;
-
-                                if (start == end)
+                                //Frame range.
+                                if (block.Contains('-'))
                                 {
-                                    //Single frame.
-                                    indexes.Add(start);
-                                }
-                                else if (start < end)
-                                {
-                                    //Normal range.
-                                    for (var i = start; i <= end; i++)
-                                        indexes.Add(i);
+                                    var subs = block.Split(['-'], StringSplitOptions.RemoveEmptyEntries);
+
+                                    if (!int.TryParse(subs[0], out var start) || !int.TryParse(subs[1], out var end))
+                                        continue;
+
+                                    if (start == end)
+                                    {
+                                        //Single frame.
+                                        indexes.Add(start);
+                                    }
+                                    else if (start < end)
+                                    {
+                                        //Normal range.
+                                        for (var i = start; i <= end; i++)
+                                            indexes.Add(i);
+                                    }
+                                    else
+                                    {
+                                        //Reversed range.
+                                        for (var i = start; i >= end; i--)
+                                            indexes.Add(i);
+                                    }
                                 }
                                 else
                                 {
-                                    //Reversed range.
-                                    for (var i = start; i >= end; i--)
+                                    if (int.TryParse(block, out var number))
+                                        indexes.Add(number);
+                                }
+                            }
+
+                            break;
+                        }
+
+                        case PartialExportModes.FrameRange:
+                        {
+                            //UI already validates range.
+                            indexes = Enumerable.Range(preset.PartialExportFrameStart, preset.PartialExportFrameEnd - preset.PartialExportFrameStart).ToList();
+                            break;
+                        }
+
+                        case PartialExportModes.TimeRange:
+                        {
+                            var span = TimeSpan.Zero;
+
+                            //Playback mode.
+                            if (preset.PartialExportTimeStart < preset.PartialExportTimeEnd)
+                            {
+                                //Normal playback.
+                                for (var i = 0; i < Project.Frames.Count; i++)
+                                {
+                                    if (span >= preset.PartialExportTimeStart && span <= preset.PartialExportTimeEnd)
                                         indexes.Add(i);
+
+                                    if (span > preset.PartialExportTimeEnd)
+                                        break;
+
+                                    span = span.Add(TimeSpan.FromMilliseconds(Project.Frames[i].Delay));
                                 }
                             }
                             else
                             {
-                                if (int.TryParse(block, out var number))
-                                    indexes.Add(number);
+                                //Reversed playback.
+                                span = TimeSpan.FromMilliseconds(Project.Frames.Sum(s => s.Delay));
+
+                                for (var i = Project.Frames.Count - 1; i >= 0; i--)
+                                {
+                                    if (span >= preset.PartialExportTimeEnd && span <= preset.PartialExportTimeStart)
+                                        indexes.Add(i);
+
+                                    if (span > preset.PartialExportTimeStart)
+                                        break;
+
+                                    span = span.Subtract(TimeSpan.FromMilliseconds(Project.Frames[i].Delay));
+                                }
                             }
+
+                            break;
                         }
 
-                        break;
-                    }
-
-                    case PartialExportModes.FrameRange:
-                    {
-                        //UI already validates range.
-                        indexes = Enumerable.Range(preset.PartialExportFrameStart, preset.PartialExportFrameEnd - preset.PartialExportFrameStart).ToList();
-                        break;
-                    }
-
-                    case PartialExportModes.TimeRange:
-                    {
-                        var span = TimeSpan.Zero;
-
-                        //Playback mode.
-                        if (preset.PartialExportTimeStart < preset.PartialExportTimeEnd)
+                        case PartialExportModes.Selection:
                         {
-                            //Normal playback.
-                            for (var i = 0; i < Project.Frames.Count; i++)
-                            {
-                                if (span >= preset.PartialExportTimeStart && span <= preset.PartialExportTimeEnd)
-                                    indexes.Add(i);
-
-                                if (span > preset.PartialExportTimeEnd)
-                                    break;
-
-                                span = span.Add(TimeSpan.FromMilliseconds(Project.Frames[i].Delay));
-                            }
+                            indexes = Dispatcher.Invoke(SelectedFramesIndex);
+                            break;
                         }
-                        else
-                        {
-                            //Reversed playback.
-                            span = TimeSpan.FromMilliseconds(Project.Frames.Sum(s => s.Delay));
-
-                            for (var i = Project.Frames.Count - 1; i >= 0; i--)
-                            {
-                                if (span >= preset.PartialExportTimeEnd && span <= preset.PartialExportTimeStart)
-                                    indexes.Add(i);
-
-                                if (span > preset.PartialExportTimeStart)
-                                    break;
-
-                                span = span.Subtract(TimeSpan.FromMilliseconds(Project.Frames[i].Delay));
-                            }
-                        }
-
-                        break;
-                    }
-
-                    case PartialExportModes.Selection:
-                    {
-                        indexes = Dispatcher.Invoke(SelectedFramesIndex);
-                        break;
                     }
                 }
             }
